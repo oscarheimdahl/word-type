@@ -1,1 +1,17 @@
-<p>wallpaper works! {{ value }}</p>
+<div class="wallpaper" [ngStyle]="{ 'background-color': wallpaperColor }">
+  <div
+    class="wallpaper-segment"
+    [ngClass]="{
+      'wallpaper-segment-show': transition,
+      'wallpaper-segment-hide': hideTransition
+    }"
+    [ngStyle]="{ 'background-color': nextWallpaperColor }"
+  ></div>
+  <div class="color-button-container">
+    <div
+      [ngStyle]="{ 'background-color': nextWallpaperColor }"
+      class="color-button"
+      (click)="showTransition()"
+    ></div>
+  </div>
+</div>
