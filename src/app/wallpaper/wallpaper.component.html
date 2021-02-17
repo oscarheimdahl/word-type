@@ -9,7 +9,10 @@
   ></div>
   <div class="color-button-container">
     <div
-      [ngStyle]="{ 'background-color': nextWallpaperColor }"
+      [ngStyle]="{
+        'background-color': nextWallpaperColor,
+        right: transition ? '-20rem' : '1rem'
+      }"
       class="color-button"
       (click)="showTransition()"
     ></div>

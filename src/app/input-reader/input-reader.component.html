@@ -1,0 +1,26 @@
+<!-- inputReader.value -->
+
+<form>
+  <input
+    type="text"
+    [(ngModel)]="inputValue"
+    (keydown)="onInput()"
+    [ngModelOptions]="{ standalone: true }"
+    autofocus
+    onblur="this.focus()"
+    class="input-reader"
+  />
+</form>
+
+<div class="centered-container">
+  <h1 class="word-preview word-preview-1">{{ nextNextWord }}</h1>
+  <h1 class="word-preview word-preview-2">{{ nextWord }}</h1>
+  <h1 class="word">
+    <span class="correct-word-typed">{{ correctWordTyped }}</span
+    ><span class="incorrect-word-typed">{{ incorrectWordTyped }}</span
+    ><span class="word-to-type">{{ wordToTypeRest }}</span>
+  </h1>
+  <h1 [ngStyle]="{ transform: enhanceWPM }" class="word-preview wpm">
+    {{ wordsPerMinute }} WPM
+  </h1>
+</div>

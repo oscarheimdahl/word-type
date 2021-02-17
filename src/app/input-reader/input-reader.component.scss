@@ -1,0 +1,64 @@
+.input-reader {
+  height: 0;
+  width: 0;
+  position: absolute;
+  // top: 0;
+  // left: 0;
+  border: none;
+}
+
+.input-reader:focus {
+  outline: none;
+}
+
+.centered-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: Inter;
+
+  .word-preview {
+    position: absolute;
+    width: 400px;
+    text-align: center;
+    left: calc(50% - 200px);
+  }
+
+  .word-preview-1 {
+    top: 20%;
+    font-size: 2rem;
+    opacity: 0.2;
+  }
+
+  .word-preview-2 {
+    top: 30%;
+    font-size: 5rem;
+    opacity: 0.5;
+  }
+
+  .wpm {
+    bottom: 20%;
+    transition: transform 0.4s;
+  }
+
+  .word {
+    font-size: 10rem;
+
+    .incorrect-word-typed {
+      color: crimson;
+    }
+
+    .correct-word-typed {
+      color: white;
+    }
+
+    .word-to-type {
+      color: black;
+    }
+  }
+}
