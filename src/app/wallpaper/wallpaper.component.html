@@ -1,16 +1,16 @@
-<div class="wallpaper" [ngStyle]="{ 'background-color': wallpaperColor }">
+<div class="wallpaper" [ngStyle]="{ 'background-color': color }">
   <div
     class="wallpaper-segment"
     [ngClass]="{
       'wallpaper-segment-show': transition,
       'wallpaper-segment-hide': hideTransition
     }"
-    [ngStyle]="{ 'background-color': nextWallpaperColor }"
+    [ngStyle]="{ 'background-color': nextColor }"
   ></div>
   <div class="color-button-container">
     <div
       [ngStyle]="{
-        'background-color': nextWallpaperColor,
+        'background-color': nextColor,
         right: transition ? '-20rem' : '1rem'
       }"
       class="color-button"

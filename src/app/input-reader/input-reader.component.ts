@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import words10000 from './words';
 const resetCountTime = 2000;
 let stopTimer: any = null;
@@ -8,7 +8,8 @@ let startTime: any = null;
   templateUrl: './input-reader.component.html',
   styleUrls: ['./input-reader.component.scss'],
 })
-export class InputReaderComponent implements OnInit {
+export class InputReaderComponent {
+  @Input() errorColor: string | undefined;
   inputValue: string = '';
   words: string[] = words10000;
   wordsPerMinute: number = 0;
@@ -24,8 +25,6 @@ export class InputReaderComponent implements OnInit {
   calcInterval: any = null;
   enhanceWPM: string = '';
   constructor() {}
-
-  ngOnInit(): void {}
 
   onInput() {
     setTimeout(() => {

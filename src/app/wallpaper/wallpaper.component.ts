@@ -1,10 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 @Component({
   selector: 'app-wallpaper',
   templateUrl: './wallpaper.component.html',
   styleUrls: ['./wallpaper.component.scss'],
 })
 export class WallpaperComponent {
+  @Input() color: string | undefined;
+  @Input() nextColor: string | undefined;
   @Output() colorChange: EventEmitter<any> = new EventEmitter();
   transition: boolean = false;
   hideTransition: boolean = false;
@@ -18,21 +20,25 @@ export class WallpaperComponent {
     '#00BFA5',
     '#D50000',
   ];
-  wallpaperColor: string = this.colors[0];
-  nextWallpaperColor: string = this.colors[1];
+  // wallpaperColor: string | undefined = this.color;
+  // nextWallpaperColor: string | undefined = this.nextColor;
+  // wallpaperColor: string = this.colors[0];
+  // nextWallpaperColor: string = this.colors[1];
   colorIndex = 2;
   transitioning = false;
 
   constructor() {}
 
   showTransition(): void {
-    this.colorChange.emit();
     if (this.transition) return;
     this.transition = true;
     setTimeout(() => {
-      this.wallpaperColor = this.nextWallpaperColor;
-      this.nextWallpaperColor = this.colors[this.colorIndex];
-      this.colorIndex++;
+      this.colorChange.emit();
+      // this.color = this.nextColor;
+      // this.wallpaperColor = this.nextColor;
+      // this.nextWallpaperColor = this.colors[this.colorIndex];
+      // this.colorIndex++;
+
       this.hideTransition = true;
       this.transition = false;
       if (this.colorIndex > this.colors.length - 1) this.colorIndex = 0;

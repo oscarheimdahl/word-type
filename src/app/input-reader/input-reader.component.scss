@@ -30,14 +30,14 @@
   }
 
   .word-preview-1 {
-    top: 20%;
+    top: 10%;
     font-size: 2rem;
     opacity: 0.2;
   }
 
   .word-preview-2 {
-    top: 30%;
-    font-size: 5rem;
+    top: 25%;
+    font-size: 2rem;
     opacity: 0.5;
   }
 
@@ -47,10 +47,10 @@
   }
 
   .word {
-    font-size: 10rem;
+    font-size: 8rem;
 
     .incorrect-word-typed {
-      color: crimson;
+      transition: color 0.2s;
     }
 
     .correct-word-typed {
