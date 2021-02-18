@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'word-type';
+  spaceMode = false;
 
   colorPairs = [
     { primary: '#00C853', secondary: '#DC143C' },
@@ -18,20 +19,15 @@ export class AppComponent {
     { primary: '#00B8D4', secondary: '#DC143C' },
   ];
   colorIndex = 1;
-  colors = [
-    '#00C853',
-    '#00BFA5',
-    '#C51162',
-    '#AA00FF',
-    '#2962FF',
-    '#00B8D4',
-    '#D50000',
-  ];
 
   currentPrimaryColor: string = this.colorPairs[0].primary;
   nextPrimaryColor: string = this.colorPairs[1].primary;
   secondaryColor: string = this.colorPairs[0].secondary;
   nextSecondaryColor: string = this.colorPairs[1].secondary;
+
+  toggleSpaceMode() {
+    this.spaceMode = !this.spaceMode;
+  }
 
   colorChange() {
     this.colorIndex++;

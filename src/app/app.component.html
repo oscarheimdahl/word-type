@@ -1,7 +1,12 @@
 <app-wallpaper
   [color]="currentPrimaryColor"
   [nextColor]="nextPrimaryColor"
+  [spaceMode]="spaceMode"
   (colorChange)="colorChange()"
+  (toggleSpaceMode)="toggleSpaceMode()"
 ></app-wallpaper>
-<app-input-reader [errorColor]="secondaryColor"></app-input-reader>
+<app-input-reader
+  [spaceMode]="spaceMode"
+  [errorColor]="secondaryColor"
+></app-input-reader>
 <router-outlet></router-outlet>

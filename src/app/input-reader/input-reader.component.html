@@ -5,6 +5,7 @@
     type="text"
     [(ngModel)]="inputValue"
     (keydown)="onInput()"
+    (keyUp.Space)="onSpace()"
     [ngModelOptions]="{ standalone: true }"
     autofocus
     onblur="this.focus()"

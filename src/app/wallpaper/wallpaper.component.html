@@ -7,14 +7,33 @@
     }"
     [ngStyle]="{ 'background-color': nextColor }"
   ></div>
-  <div class="color-button-container">
-    <div
-      [ngStyle]="{
-        'background-color': nextColor,
-        right: transition ? '-20rem' : '1rem'
-      }"
-      class="color-button"
-      (click)="showTransition()"
-    ></div>
-  </div>
+
+  <app-round-button
+    [customStyle]="{
+      'background-color': spaceMode ? 'black' : 'white',
+      left: '1rem',
+      bottom: '1rem',
+      border: '1px solid black'
+    }"
+    class="color-button"
+    (click)="toggleSpaceMode.emit()"
+  ></app-round-button>
+
+  <h5
+    [ngStyle]="{ transform: spaceMode ? 'translateY(0)' : 'translateY(4rem)' }"
+    class="space-mode"
+  >
+    Space Mode
+  </h5>
+
+  <app-round-button
+    [customStyle]="{
+      'background-color': nextColor,
+      right: transition ? '-20rem' : '1rem',
+      bottom: '1rem'
+    }"
+    class="color-button"
+    (click)="showTransition()"
+  >
+  </app-round-button>
 </div>

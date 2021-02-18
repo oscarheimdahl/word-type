@@ -26,29 +26,12 @@
     transition-duration: 0;
   }
 
-  .color-button-hide {
-    visibility: 0;
-    transform: translateX(2rem);
-  }
-
-  .color-button {
-    visibility: visible;
+  .space-mode {
     position: absolute;
     bottom: 1rem;
-    right: 1rem;
-    width: 20px;
-    height: 20px;
-    border-radius: 8px;
-    transition: 0.4s;
-    z-index: 1;
-  }
-
-  .color-button:hover {
-    transform: scale(0.9);
-    cursor: pointer;
-  }
-
-  .color-button:last-child {
-    margin-right: 0;
+    left: 3rem;
+    margin-bottom: 2px;
+    font-family: Inter;
+    transition: transform 0.4s;
   }
 }

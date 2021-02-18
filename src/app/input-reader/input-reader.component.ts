@@ -10,6 +10,7 @@ let startTime: any = null;
 })
 export class InputReaderComponent {
   @Input() errorColor: string | undefined;
+  @Input() spaceMode: boolean | undefined;
   inputValue: string = '';
   words: string[] = words10000;
   wordsPerMinute: number = 0;
@@ -24,6 +25,7 @@ export class InputReaderComponent {
   typeStartTime: number = 0;
   calcInterval: any = null;
   enhanceWPM: string = '';
+  matchLength: number = 0;
   constructor() {}
 
   onInput() {
@@ -31,24 +33,30 @@ export class InputReaderComponent {
       this.delayStopTime();
       this.startWPMInterval();
       this.inputValue = this.inputValue.replace(/\s/g, '');
-      const matchLength = letterMatchFromStart(
-        this.inputValue,
-        this.wordToType
-      );
-      if (matchLength < this.inputValue.length) {
+      this.matchLength = letterMatchFromStart(this.inputValue, this.wordToType);
+      if (this.matchLength < this.inputValue.length) {
         this.incorrectWordTyped = this.inputValue.substr(
-          matchLength,
+          this.matchLength,
           this.inputValue.length
         );
       } else {
         this.incorrectWordTyped = '';
       }
-      if (matchLength === this.wordToType.length) {
+      if (this.matchLength === this.wordToType.length && !this.spaceMode) {
         this.newWord();
       } else {
-        this.updateRenderedWords(matchLength, this.incorrectWordTyped.length);
+        this.updateRenderedWords(
+          this.matchLength,
+          this.incorrectWordTyped.length
+        );
       }
     });
+  }
+
+  onSpace() {
+    if (!this.spaceMode) return;
+    if (this.matchLength === this.wordToType.length) this.newWord();
+    console.log('space');
   }
 
   startWPMInterval() {
@@ -62,6 +70,7 @@ export class InputReaderComponent {
     const totalTime = Date.now() - startTime;
     const minutes = totalTime / (60 * 1000);
     this.wordsPerMinute = Math.round(this.lettersTyped / 5 / minutes);
+    if (!this.wordsPerMinute) this.wordsPerMinute = 0;
   }
 
   delayStopTime() {

@@ -1,0 +1,16 @@
+.round-button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  background-color: white;
+  transition: 0.4s;
+  z-index: 1;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.round-button:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
