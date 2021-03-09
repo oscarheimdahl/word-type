@@ -33,30 +33,24 @@ export class InputReaderComponent {
       this.delayStopTime();
       this.startWPMInterval();
       this.inputValue = this.inputValue.replace(/\s/g, '');
-      const matchLength = letterMatchFromStart(
-        this.inputValue,
-        this.wordToType
-      );
-      if (matchLength < this.inputValue.length) {
+      this.matchLength = letterMatchFromStart(this.inputValue, this.wordToType);
+      if (this.matchLength < this.inputValue.length) {
         // this.incorrectWordTyped = this.inputValue.substr(
         //   matchLength,
         //   this.inputValue.length
         // );
         // console.log(matchLength)
         this.incorrectWordTyped = this.wordToType.substr(
-          matchLength,
-          this.inputValue.length - matchLength
+          this.matchLength,
+          this.inputValue.length - this.matchLength
         );
       } else {
         this.incorrectWordTyped = '';
       }
-      if (matchLength === this.wordToType.length && !this.spaceMode) {
+      if (this.matchLength === this.wordToType.length && !this.spaceMode) {
         this.newWord();
       } else {
-        this.updateRenderedWords(
-          matchLength,
-          this.incorrectWordTyped.length
-        );
+        this.updateRenderedWords();
       }
     });
   }
@@ -109,10 +103,10 @@ export class InputReaderComponent {
     this.inputValue = '';
   }
 
-  updateRenderedWords(matchLength: number, shiftRest: number): void {
-    this.correctWordTyped = this.inputValue.substr(0, matchLength);
+  updateRenderedWords(): void {
+    this.correctWordTyped = this.inputValue.substr(0, this.matchLength);
     this.wordToTypeRest = this.wordToType.substr(
-      matchLength + shiftRest,
+      this.matchLength + this.incorrectWordTyped.length,
       this.wordToType.length
     );
   }
