@@ -33,11 +33,18 @@ export class InputReaderComponent {
       this.delayStopTime();
       this.startWPMInterval();
       this.inputValue = this.inputValue.replace(/\s/g, '');
-      this.matchLength = letterMatchFromStart(this.inputValue, this.wordToType);
-      if (this.matchLength < this.inputValue.length) {
-        this.incorrectWordTyped = this.inputValue.substr(
-          this.matchLength,
-          this.inputValue.length
+      const matchLength = letterMatchFromStart(
+        this.inputValue,
+        this.wordToType
+      );
+      if (matchLength < this.inputValue.length) {
+        // this.incorrectWordTyped = this.inputValue.substr(
+        //   matchLength,
+        //   this.inputValue.length
+        // );
+        this.incorrectWordTyped = this.wordToType.substr(
+          matchLength,
+          this.inputValue.length - matchLength
         );
       } else {
         this.incorrectWordTyped = '';
