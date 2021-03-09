@@ -42,6 +42,7 @@ export class InputReaderComponent {
         //   matchLength,
         //   this.inputValue.length
         // );
+        // console.log(matchLength)
         this.incorrectWordTyped = this.wordToType.substr(
           matchLength,
           this.inputValue.length - matchLength
@@ -49,11 +50,11 @@ export class InputReaderComponent {
       } else {
         this.incorrectWordTyped = '';
       }
-      if (this.matchLength === this.wordToType.length && !this.spaceMode) {
+      if (matchLength === this.wordToType.length && !this.spaceMode) {
         this.newWord();
       } else {
         this.updateRenderedWords(
-          this.matchLength,
+          matchLength,
           this.incorrectWordTyped.length
         );
       }
