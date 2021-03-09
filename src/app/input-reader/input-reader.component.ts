@@ -56,7 +56,6 @@ export class InputReaderComponent {
   onSpace() {
     if (!this.spaceMode) return;
     if (this.matchLength === this.wordToType.length) this.newWord();
-    console.log('space');
   }
 
   startWPMInterval() {

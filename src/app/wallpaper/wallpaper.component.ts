@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
 })
 export class WallpaperComponent {
   @Input() color: string | undefined;
-  @Input() spaceMode: string | undefined;
+  @Input() spaceMode: boolean | undefined;
   @Input() nextColor: string | undefined;
   @Output() colorChange: EventEmitter<any> = new EventEmitter();
   @Output() toggleSpaceMode: EventEmitter<any> = new EventEmitter();

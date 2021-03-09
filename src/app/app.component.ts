@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'word-type';
-  spaceMode = false;
+  spaceMode: boolean = false;
 
   colorPairs = [
-    { primary: '#00C853', secondary: '#DC143C' },
-    { primary: '#AA00FF', secondary: '#DC143C' },
     { primary: '#00BFA5', secondary: '#DC143C' },
     { primary: '#C51162', secondary: '#FFD600' },
+    { primary: '#00C853', secondary: '#DC143C' },
+    { primary: '#AA00FF', secondary: '#DC143C' },
     { primary: '#2962FF', secondary: '#DC143C' },
     { primary: '#D50000', secondary: '#FFD600' },
     { primary: '#00B8D4', secondary: '#DC143C' },
